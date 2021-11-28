@@ -32,3 +32,8 @@ Copy from container to host
 ```
 dk copy <container name/id>:<path to copy> <host path dest>
 ```
+
+Create new tag for image before pushing to registry
+```
+dk tag <local tag> <remote registry tag>
+```
