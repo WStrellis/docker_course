@@ -6,6 +6,7 @@ COPY package.json .
 
 RUN npm i
 
-COPY . .
+COPY public public/
+COPY server.js .
 
 CMD ["node", "server.js"]

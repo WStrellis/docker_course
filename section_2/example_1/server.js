@@ -20,7 +20,7 @@ app.get('/', (req, res) => {
         <link rel="stylesheet" href="styles.css">
       </head>
       <body>
-        <section>
+        <section style="background-color:hsl(173deg 53% 79%);">
           <h2>My Course Goal</h2>
           <h3>${userGoal}</h3>
         </section>
