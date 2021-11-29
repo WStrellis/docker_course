@@ -37,3 +37,18 @@ Create new tag for image before pushing to registry
 ```
 dk tag <local tag> <remote registry tag>
 ```
+
+Cleanup anonymous volumes
+```
+dk volume prune
+```
+
+Bind Mount shortcuts  
+Linux: `-v $(pwd):/foo`  
+Windows: `-v "%cd%":/foo`  
+
+## Storage
+- Volumes - managed by Docker
+    - Anonymous - Use for temporary data . Coupled to container. Removed when container is removed. Cannot be shared or reused.
+    - Named - Persistent after container is deleted. Can be shared and reused.
+- Bind Mounts - managed by Docker user. Can be shared and reused
