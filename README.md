@@ -52,3 +52,4 @@ Windows: `-v "%cd%":/foo`
     - Anonymous - Use for temporary data . Coupled to container. Removed when container is removed. Cannot be shared or reused.
     - Named - Persistent after container is deleted. Can be shared and reused.
 - Bind Mounts - managed by Docker user. Can be shared and reused
+    - add `:ro` to bind mounts to make them read only, preventing containers from modifying files on the host

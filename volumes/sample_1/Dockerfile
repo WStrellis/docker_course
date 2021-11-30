@@ -8,7 +8,8 @@ RUN npm i
 
 COPY . .
 
-VOLUME [ "/srv/feedback" ]
-VOLUME [ "/srv/temp" ]
+ARG DEFAULT_PORT=80
+ENV PORT $DEFAULT_PORT
+EXPOSE $PORT
 
 CMD ["npm","start"]
