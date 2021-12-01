@@ -47,9 +47,17 @@ Bind Mount shortcuts
 Linux: `-v $(pwd):/foo`  
 Windows: `-v "%cd%":/foo`  
 
+Create a network
+```
+dk network create <name>
+```
 ## Storage
 - Volumes - managed by Docker
     - Anonymous - Use for temporary data . Coupled to container. Removed when container is removed. Cannot be shared or reused.
     - Named - Persistent after container is deleted. Can be shared and reused.
 - Bind Mounts - managed by Docker user. Can be shared and reused
     - add `:ro` to bind mounts to make them read only, preventing containers from modifying files on the host
+
+## Networking
+
+Use hostname `host.docker.internal` to allow containers to communicate with services running on the docker host.  
