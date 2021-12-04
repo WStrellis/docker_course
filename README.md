@@ -52,7 +52,7 @@ Create a network
 dk network create <name>
 ```
 
-Create image from container and upload to registry
+Create tag from container and associate with registry
 ```
 dk commit <container id> <registry url>/<repo_name>
 ```
@@ -67,3 +67,8 @@ dk commit <container id> <registry url>/<repo_name>
 ## Networking
 
 Use hostname `host.docker.internal` to allow containers to communicate with services running on the docker host.  
+
+## Devopment Tricks
+- Bind mount the project files that change to the container
+- Use Nodemon to run the app
+- Store `node_modules` in an anonymous volume
