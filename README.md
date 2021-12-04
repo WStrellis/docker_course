@@ -51,6 +51,12 @@ Create a network
 ```
 dk network create <name>
 ```
+
+Create image from container and upload to registry
+```
+dk commit <container id> <registry url>/<repo_name>
+```
+
 ## Storage
 - Volumes - managed by Docker
     - Anonymous - Use for temporary data . Coupled to container. Removed when container is removed. Cannot be shared or reused.
