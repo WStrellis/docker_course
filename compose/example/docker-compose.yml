@@ -1,0 +1,34 @@
+version: "3.8"
+# declare names volumes that are used by containers. Can be shared. Only list name.
+# do not list bind mounts or anonymous volumes
+volumes:
+  data:
+  logs:
+services:
+  backend:
+    # build:
+    #   context: ./backend
+    #   dockerfile: Dockerfile
+    #   args:
+    #     some-arg: 1
+    build: ./backend
+    # image: "backend"
+    ports:
+      - "7755:7755"
+    volumes:
+      - logs:/app/logs
+      - ./backend:/app
+      - /app/node_modules
+    depends_on:
+      - mongodb
+  # frontend:
+    # image: "frontend"
+  mongodb:
+    image: "mongo"
+    volumes:
+      - data:/data/db
+    # environment:
+      # - MONGO_INITDB_ROOT_USERNAME: value
+      # - MONGO_INITDB_ROOT_PASSWORD: value
+    # env_file:
+      # - ./env/mongo.env
