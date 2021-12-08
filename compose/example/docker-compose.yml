@@ -21,8 +21,18 @@ services:
       - /app/node_modules
     depends_on:
       - mongodb
-  # frontend:
-    # image: "frontend"
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend/src:/app/src
+    # same as -i
+    stdin_open: true 
+    # same as -t
+    tty: true 
+    depends_on:
+      - backend
   mongodb:
     image: "mongo"
     volumes:
