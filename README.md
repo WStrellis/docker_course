@@ -57,6 +57,11 @@ Create tag from container and associate with registry
 dk commit <container id> <registry url>/<repo_name>
 ```
 
+## Dockerfile
+
+- EXEC - These commands always run. When additional commands are specified to start/run a container they are appended to the EXEC command
+- CMD - These commands are overwritten by commands specified on the CLI.
+
 ## Storage
 - Volumes - managed by Docker
     - Anonymous - Use for temporary data . Coupled to container. Removed when container is removed. Cannot be shared or reused.
