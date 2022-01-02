@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+# create deployment
+kind: Deployment
+metadata:
+  name: second-app
+# describe pods
+spec:
+  # number of pods to run
+  replicas: 1
+  # associate pods with this deployment
+  selector:
+    matchLabels:
+      app: second-app
+  # define pods of deployment
+  template:
+    metadata:
+      labels:
+        # key can be anything
+        app: second-app
+    spec:
+      # array of containers to run in each pod
+      containers:
+      - name: second-node-app
+        image: wstrellis/kub-first-app:2.0

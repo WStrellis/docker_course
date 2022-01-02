@@ -1,0 +1,54 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+  labels:
+    group: example
+spec:
+  selector:
+    app: second-app
+  ports:
+    - protocol: "TCP"
+      # external port
+      port: 80
+      # container port
+      targetPort: 8080
+  type: LoadBalancer
+
+---
+apiVersion: apps/v1
+# create deployment
+kind: Deployment
+metadata:
+  name: second-app
+  labels:
+    group: example
+# describe pods
+spec:
+  # number of pods to run
+  replicas: 1
+  # associate pods with this deployment
+  selector:
+  #   matchLabels:
+  #     app: second-app
+    matchExpressions:
+      - {key: app, operator: In, values: [second-app,foo]}
+  # define pods of deployment
+  template:
+    metadata:
+      labels:
+        # key can be anything
+        app: second-app
+    spec:
+      # array of containers to run in each pod
+      containers:
+      - name: second-node-app
+        image: wstrellis/kub-first-app:2.0
+        imagePullPolicy: Always
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8080
+          periodSeconds: 10
+          initialDelaySeconds: 5

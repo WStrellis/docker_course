@@ -5,7 +5,7 @@ const app = express();
 app.get('/', (req, res) => {
   res.send(`
     <h1>Westley's App</h1>
-    <p>Lions are yellow</p>
+    <p>Celery is green</p>
   `);
 });
 

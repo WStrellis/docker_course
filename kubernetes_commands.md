@@ -3,6 +3,7 @@ _Cluster Insights_
 - `kubectl get deployments` show deployments
 - `kubectl get pods` - show pods
 - `kubectl get services` - list services
+- `kubectl describe pod liveness-exec` - view results of liveness probe
 
 _Service Management_
 - `kubectl apply -f myconfg.yml` - a config file is used to define the desired state
