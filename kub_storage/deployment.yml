@@ -1,0 +1,27 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: story-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: story
+  template:
+    metadata:
+      labels:
+        app: story
+    spec:
+      containers:
+        - name: story
+          image: wstrellis/story-app:2.0.0 
+          volumeMounts: 
+            - mountPath: /app/story
+              name: story-volume
+      volumes:
+        - name: story-volume
+          # volume Type
+          hostPath: 
+            path: /story
+            type: DirectoryOrCreate
