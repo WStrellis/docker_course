@@ -22,6 +22,8 @@ spec:
       volumes:
         - name: story-volume
           # volume Type
-          hostPath: 
-            path: /story
-            type: DirectoryOrCreate
+          # hostPath: 
+            # path: /story
+            # type: DirectoryOrCreate
+          persistentVolumeClaim: 
+            claimName: host-pvc

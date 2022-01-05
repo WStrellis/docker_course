@@ -1,0 +1,18 @@
+apiVersion:  v1
+kind: PersistentVolume
+metadata:
+  name: host-pv
+spec:
+  # define the size of the volume
+  capacity: 
+    storage: 1Gi
+  volumeMode: Filesystem 
+  accessModes:
+    # can only be used by single node, many pods
+    - ReadWriteOnce 
+    # many nodes, many pods
+    # - ReadWriteMany 
+    # - ReadOnlyMany
+  hostPath:
+    path: /story
+    type: DirectoryOrCreate
