@@ -9,3 +9,13 @@
 - admin must create Cluster and nodes
 - Kubernetes manages _deployed_ resources. It cannot deploy infrastructure.
 - kubctl - tool used to manage the cluster
+
+### Normal vs Persistent Volumes
+- Normal
+    - Volume is attached to Pod and Pod lifecycle
+    - Defined and created as part of Pod
+    - difficult to administer on large deployments
+- Persistent
+    - created as distinct resouce within the cluster
+    - claimed via PVC
+    - can be defined once and used many times

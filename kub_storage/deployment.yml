@@ -19,6 +19,9 @@ spec:
           volumeMounts: 
             - mountPath: /app/story
               name: story-volume
+          env:
+            - name: STORY_FOLDER
+              value: "story"
       volumes:
         - name: story-volume
           # volume Type

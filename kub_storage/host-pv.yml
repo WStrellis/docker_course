@@ -7,6 +7,7 @@ spec:
   capacity: 
     storage: 1Gi
   volumeMode: Filesystem 
+  storageClassName: hostpath
   accessModes:
     # can only be used by single node, many pods
     - ReadWriteOnce 
