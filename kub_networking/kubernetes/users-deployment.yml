@@ -15,4 +15,8 @@ spec:
     spec:
       containers:
         - name: users
-          image: wstrellis/kub-users-app 
+          image: wstrellis/kub-users-app:latest 
+          env:
+            - name: AUTH_ADDRESS
+            # ip address of auth service shown from "kubectl get services"
+              value: "10.103.21.224:7000"

@@ -1,0 +1,27 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tasks-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tasks
+  template:
+    metadata:
+      labels:
+        app: tasks
+    spec:
+      containers:
+        - name: tasks
+          image: wstrellis/kub-tasks-app:latest 
+          env:
+            - name: TASKS_FOLDER
+              value: tasks
+          volumeMounts:
+          - mountPath: /app/tasks
+            name: tasks-volume
+      volumes:
+      - name: tasks-volume
+        emptyDir: {}
