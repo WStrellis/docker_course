@@ -10,4 +10,6 @@ COPY . .
 
 EXPOSE 8000
 
+VOLUME [ "/app/tasks" ]
+
 CMD [ "node", "tasks-app.js" ]

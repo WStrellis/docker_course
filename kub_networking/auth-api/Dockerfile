@@ -8,6 +8,6 @@ RUN npm install
 
 COPY . .
 
-EXPOSE 80
+EXPOSE 7000
 
 CMD [ "node", "auth-app.js" ]
